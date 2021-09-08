@@ -1,11 +1,11 @@
-# dune exec ./nonce.exe
+# dune exe ./nonce.exe
 # OCAMLPARAM: unset
 # Workspace root:
 # /Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dunef1f83d.output 2> /dev/null
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dune03dc04.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dune6a2cb6.output
+$ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dune133f82.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -113,6 +113,3 @@ $ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc00
 #  }
 # Workspace root:
 # /Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce
-$ (cd _build/default && /usr/local/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .nonce.eobjs/byte -I /Users/onofret/.opam/default/lib/sha -I /Users/onofret/.opam/default/lib/stdlib-shims -no-alias-deps -opaque -o .nonce.eobjs/byte/dune__exe__Nonce.cmo -c -impl nonce.ml)
-$ (cd _build/default && /usr/local/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I .nonce.eobjs/byte -I .nonce.eobjs/native -I /Users/onofret/.opam/default/lib/sha -I /Users/onofret/.opam/default/lib/stdlib-shims -intf-suffix .ml -no-alias-deps -opaque -o .nonce.eobjs/native/dune__exe__Nonce.cmx -c -impl nonce.ml)
-$ (cd _build/default && /usr/local/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o nonce.exe /Users/onofret/.opam/default/lib/stdlib-shims/stdlib_shims.cmxa /Users/onofret/.opam/default/lib/sha/sha.cmxa -I /Users/onofret/.opam/default/lib/sha .nonce.eobjs/native/dune__exe__Nonce.cmx)
