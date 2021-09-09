@@ -1,4 +1,8 @@
 (* Nonce mineration algorithm introduction *)
+(* Main modules used:
+ * Int32
+ * Sha
+ * Random *)
 
 (* user inputs *)
 let size_input return_int = Scanf.scanf "%d\n" return_int;;
@@ -35,7 +39,8 @@ let mine () =
     if (String.compare (String.sub hash 0 size) (generate_target size)) = 0 then 
       Printf.printf "Hash: %s | Golden Nonce: %s\n%!" hash (Int32.to_string nonce) (* Golden Nonce found! *)
     else Printf.printf "Hash: %s | Nonce: %s\n%!" hash (Int32.to_string nonce)
-         |> fun () -> aux (Random.int32 (Int32.of_int bound32int)) in (* Add that nonce to the table and keep going *)
+         |> fun () -> aux (Random.int32 (Int32.of_int bound32int)) 
+  in 
   aux (Random.int32 (Int32.of_int bound32int))
 ;;
 

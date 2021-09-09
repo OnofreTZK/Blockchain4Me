@@ -1,11 +1,11 @@
-# dune exe ./nonce.exe
+# dune exec ./nonce.exe
 # OCAMLPARAM: unset
 # Workspace root:
-# /Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dune03dc04.output 2> /dev/null
-# Auto-detected concurrency: 8
+# /home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce
+$ /usr/bin/nproc > /tmp/dune7db054.output 2> /dev/null
+# Auto-detected concurrency: 16
 # disable binary cache
-$ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dune133f82.output
+$ /usr/bin/ocamlc.opt -config > /tmp/dune8eff65.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -14,72 +14,106 @@ $ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc00
 #  ; for_host = None
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
-#  ; toplevel_path = Some External "/Users/onofret/.opam/default/lib/toplevel"
-#  ; ocaml_bin = External "/usr/local/bin"
-#  ; ocaml = Ok External "/Users/onofret/.opam/default/bin/ocaml"
-#  ; ocamlc = External "/usr/local/bin/ocamlc.opt"
-#  ; ocamlopt = Ok External "/usr/local/bin/ocamlopt.opt"
-#  ; ocamldep = Ok External "/usr/local/bin/ocamldep.opt"
-#  ; ocamlmklib = Ok External "/usr/local/bin/ocamlmklib.opt"
+#  ; toplevel_path = Some External "/home/onofre/.opam/default/lib/toplevel"
+#  ; ocaml_bin = External "/usr/bin"
+#  ; ocaml = Ok External "/home/onofre/.opam/default/bin/ocaml"
+#  ; ocamlc = External "/usr/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/usr/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/usr/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/usr/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "DUNE_OCAML_HARDCODED" : "/Users/onofret/.opam/default/lib"
-#        ; "DUNE_OCAML_STDLIB" : "/usr/local/lib/ocaml"
+#        { "DUNE_OCAML_HARDCODED" : "/home/onofre/.opam/default/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/usr/lib/ocaml"
 #        ; "DUNE_SOURCEROOT" :
-#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce"
+#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce"
 #        ; "INSIDE_DUNE" :
-#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce/_build/default"
-#        ; "MANPATH" :
-#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/bin"
+#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce/_build/default"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/lib"
+#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/lib"
+#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/lib/toplevel"
+#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/Users/onofret/.opam/default/lib" ]
+#  ; findlib_path = [ External "/home/onofre/.opam/default/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
-#      ; standard_library_default = "/usr/local/lib/ocaml"
-#      ; standard_library = "/usr/local/lib/ocaml"
+#      ; standard_library_default = "/usr/lib/ocaml"
+#      ; standard_library = "/usr/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
-#      ; c_compiler = "clang"
-#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
-#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
-#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
-#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; c_compiler = "gcc"
+#      ; ocamlc_cflags =
+#          [ "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-fPIC"
+#          ; "-march=x86-64"
+#          ; "-mtune=generic"
+#          ; "-O2"
+#          ; "-pipe"
+#          ; "-fno-plt"
+#          ]
+#      ; ocamlc_cppflags =
+#          [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT"; "-D_FORTIFY_SOURCE=2" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-fPIC"
+#          ; "-march=x86-64"
+#          ; "-mtune=generic"
+#          ; "-O2"
+#          ; "-pipe"
+#          ; "-fno-plt"
+#          ]
+#      ; ocamlopt_cppflags =
+#          [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT"; "-D_FORTIFY_SOURCE=2" ]
 #      ; bytecomp_c_compiler =
-#          [ "clang"
+#          [ "gcc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
+#          ; "-fPIC"
+#          ; "-march=x86-64"
+#          ; "-mtune=generic"
+#          ; "-O2"
+#          ; "-pipe"
+#          ; "-fno-plt"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
+#          ; "-D_FORTIFY_SOURCE=2"
 #          ]
-#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
 #      ; native_c_compiler =
-#          [ "clang"
+#          [ "gcc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
+#          ; "-fPIC"
+#          ; "-march=x86-64"
+#          ; "-mtune=generic"
+#          ; "-O2"
+#          ; "-pipe"
+#          ; "-fno-plt"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
+#          ; "-D_FORTIFY_SOURCE=2"
 #          ]
-#      ; native_c_libraries = [ "-lm" ]
+#      ; native_c_libraries = [ "-lm"; "-ldl" ]
 #      ; cc_profile = []
 #      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
-#      ; system = "macosx"
-#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; system = "linux"
+#      ; asm = [ "as" ]
 #      ; asm_cfi_supported = true
 #      ; with_frame_pointers = false
 #      ; ext_exe = ""
@@ -90,12 +124,12 @@ $ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc00
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-apple-darwin20.3.0"
-#      ; target = "x86_64-apple-darwin20.3.0"
+#      ; host = "x86_64-pc-linux-gnu"
+#      ; target = "x86_64-pc-linux-gnu"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
-#      ; safe_string = true
+#      ; safe_string = false
 #      ; exec_magic_number = "Caml1999X029"
 #      ; cmi_magic_number = "Caml1999I029"
 #      ; cmo_magic_number = "Caml1999O029"
@@ -112,4 +146,4 @@ $ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc00
 #      }
 #  }
 # Workspace root:
-# /Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Nonce
+# /home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Nonce
