@@ -8,7 +8,3 @@ module Blockchain = Dune__exe__Blockchain
 
 (** @canonical Dune__exe.Chain *)
 module Chain = Dune__exe__Chain
-
-
-(** @canonical Dune__exe.Ledger *)
-module Ledger = Dune__exe__Ledger

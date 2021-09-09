@@ -1,6 +1,6 @@
 open Block
 
-(* Block type *)
+(* Chain type *)
 module Blockchain : sig
 
   type t

@@ -9,8 +9,16 @@ module Block : sig
 
 end = struct
 
-  type t = ledger
-
+  (* Serializable record *)
+  type t = {
+      mutable block_index : int;
+      timestamp : string;
+      nonce : int;
+      transactions : list;
+      prev_hash : string;
+      hash : string;
+    }[@@deriving yojson]
+  
   let create ~proof ~transactions ~prev_hash ~hash =
     let index = 0 
     in
