@@ -1,0 +1,4 @@
+(executable
+ (name blockchain)
+ (libraries sha opium)
+ (preprocess (pps ppx_deriving_yojson)))
