@@ -1,4 +1,10 @@
-open Ledger
+
+(* Transaction type *)
+type transaction = {
+  from_ : string;
+  amount : float;
+  to_ : string;
+}
 
 (* Block type *)
 module Block : sig
@@ -14,7 +20,7 @@ end = struct
       mutable block_index : int;
       timestamp : string;
       nonce : int;
-      transactions : list;
+      transactions : transaction list;
       prev_hash : string;
       hash : string;
     }[@@deriving yojson]
@@ -24,7 +30,7 @@ end = struct
     in
     let timestamp = Float.to_string Unix.time
     in
-    {index; timestamp; proof; transactions; prev_hash; Ledger.hash}
+    {index; timestamp; proof; transactions; prev_hash; hash}
   ;;
 
 end
