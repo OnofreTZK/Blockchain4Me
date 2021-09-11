@@ -1,7 +1,3 @@
-(** @canonical Dune__exe.Block *)
-module Block = Dune__exe__Block
-
-
 (** @canonical Dune__exe.Blockchain *)
 module Blockchain = Dune__exe__Blockchain
 
