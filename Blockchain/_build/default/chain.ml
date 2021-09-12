@@ -1,5 +1,5 @@
 (* For future ->
- * Use module type to write a module interface a file and
+ * Use module type to write a module interface and
  * module ModuleImpl : ModuleType to write the struct in another file *)
 
 (* Transaction type *)
@@ -27,8 +27,6 @@ module Blockchain : sig
 
   type t
 
-  val chain : t 
-
   val target : int
 
   val bound32int : int
@@ -36,9 +34,9 @@ module Blockchain : sig
   val create_block : 
     nonce:int -> transactions:transaction list -> prev_hash:string -> hash:string -> block
   
-  val add_block : block -> unit
+  val add_block : block -> t -> unit
 
-  val get_previous_block : unit -> block
+  val get_previous_block : t -> block
 
   val generate_target : string
 
@@ -49,8 +47,6 @@ module Blockchain : sig
 end = struct
 
   type t = block list
-
-  let chain = []
 
   (* Target of zeros *)
   let target = 4
@@ -66,14 +62,14 @@ end = struct
      transactions=transactions; prev_hash=prev_hash; hash=hash}
   
   (* Add new block to the chain *)
-  let add_block block =
+  let add_block block chain =
     let idx = if (List.length chain) = 0 then 0 else (List.length chain - 1)
     in
     block.block_index <- idx;
     block :: chain |> fun _ -> ()
 
   (* Returns the last block *)
-  let get_previous_block () =
+  let get_previous_block chain =
     List.nth chain ((List.length chain) - 1)
 
   (* Generates a string with a number of zeros defined as the target *)

@@ -1,11 +1,11 @@
 # dune build ./blockchain.exe
 # OCAMLPARAM: unset
 # Workspace root:
-# /home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Blockchain
-$ /usr/bin/nproc > /tmp/dune43faa1.output 2> /dev/null
-# Auto-detected concurrency: 16
+# /Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dune81de87.output 2> /dev/null
+# Auto-detected concurrency: 8
 # disable binary cache
-$ /usr/bin/ocamlc.opt -config > /tmp/duneb11bee.output
+$ /usr/local/bin/ocamlc.opt -config > /var/folders/l8/b_xx69vn75x8_q7w9w6qk8dc0000gn/T/dunef7e071.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -14,106 +14,72 @@ $ /usr/bin/ocamlc.opt -config > /tmp/duneb11bee.output
 #  ; for_host = None
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
-#  ; toplevel_path = Some External "/home/onofre/.opam/default/lib/toplevel"
-#  ; ocaml_bin = External "/usr/bin"
-#  ; ocaml = Ok External "/home/onofre/.opam/default/bin/ocaml"
-#  ; ocamlc = External "/usr/bin/ocamlc.opt"
-#  ; ocamlopt = Ok External "/usr/bin/ocamlopt.opt"
-#  ; ocamldep = Ok External "/usr/bin/ocamldep.opt"
-#  ; ocamlmklib = Ok External "/usr/bin/ocamlmklib.opt"
+#  ; toplevel_path = Some External "/Users/onofret/.opam/default/lib/toplevel"
+#  ; ocaml_bin = External "/usr/local/bin"
+#  ; ocaml = Ok External "/Users/onofret/.opam/default/bin/ocaml"
+#  ; ocamlc = External "/usr/local/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/usr/local/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/usr/local/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/usr/local/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "DUNE_OCAML_HARDCODED" : "/home/onofre/.opam/default/lib"
-#        ; "DUNE_OCAML_STDLIB" : "/usr/lib/ocaml"
+#        { "DUNE_OCAML_HARDCODED" : "/Users/onofret/.opam/default/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/usr/local/lib/ocaml"
 #        ; "DUNE_SOURCEROOT" :
-#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Blockchain"
+#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain"
 #        ; "INSIDE_DUNE" :
-#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Blockchain/_build/default"
+#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain/_build/default"
+#        ; "MANPATH" :
+#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/lib"
+#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/lib"
+#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/home/onofre/PersonalProjects/studies/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/lib/toplevel"
+#            "/Users/onofret/Documents/personalprojects/ocamlStudies/Blockchain4Me/Blockchain/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/home/onofre/.opam/default/lib" ]
+#  ; findlib_path = [ External "/Users/onofret/.opam/default/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
-#      ; standard_library_default = "/usr/lib/ocaml"
-#      ; standard_library = "/usr/lib/ocaml"
+#      ; standard_library_default = "/usr/local/lib/ocaml"
+#      ; standard_library = "/usr/local/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
-#      ; c_compiler = "gcc"
-#      ; ocamlc_cflags =
-#          [ "-O2"
-#          ; "-fno-strict-aliasing"
-#          ; "-fwrapv"
-#          ; "-fPIC"
-#          ; "-march=x86-64"
-#          ; "-mtune=generic"
-#          ; "-O2"
-#          ; "-pipe"
-#          ; "-fno-plt"
-#          ]
-#      ; ocamlc_cppflags =
-#          [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT"; "-D_FORTIFY_SOURCE=2" ]
-#      ; ocamlopt_cflags =
-#          [ "-O2"
-#          ; "-fno-strict-aliasing"
-#          ; "-fwrapv"
-#          ; "-fPIC"
-#          ; "-march=x86-64"
-#          ; "-mtune=generic"
-#          ; "-O2"
-#          ; "-pipe"
-#          ; "-fno-plt"
-#          ]
-#      ; ocamlopt_cppflags =
-#          [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT"; "-D_FORTIFY_SOURCE=2" ]
+#      ; c_compiler = "clang"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
 #      ; bytecomp_c_compiler =
-#          [ "gcc"
+#          [ "clang"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
-#          ; "-fPIC"
-#          ; "-march=x86-64"
-#          ; "-mtune=generic"
-#          ; "-O2"
-#          ; "-pipe"
-#          ; "-fno-plt"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
-#          ; "-D_FORTIFY_SOURCE=2"
 #          ]
-#      ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
 #      ; native_c_compiler =
-#          [ "gcc"
+#          [ "clang"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
-#          ; "-fPIC"
-#          ; "-march=x86-64"
-#          ; "-mtune=generic"
-#          ; "-O2"
-#          ; "-pipe"
-#          ; "-fno-plt"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
-#          ; "-D_FORTIFY_SOURCE=2"
 #          ]
-#      ; native_c_libraries = [ "-lm"; "-ldl" ]
+#      ; native_c_libraries = [ "-lm" ]
 #      ; cc_profile = []
 #      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
-#      ; system = "linux"
-#      ; asm = [ "as" ]
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
 #      ; asm_cfi_supported = true
 #      ; with_frame_pointers = false
 #      ; ext_exe = ""
@@ -124,12 +90,12 @@ $ /usr/bin/ocamlc.opt -config > /tmp/duneb11bee.output
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-pc-linux-gnu"
-#      ; target = "x86_64-pc-linux-gnu"
+#      ; host = "x86_64-apple-darwin20.3.0"
+#      ; target = "x86_64-apple-darwin20.3.0"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
-#      ; safe_string = false
+#      ; safe_string = true
 #      ; exec_magic_number = "Caml1999X029"
 #      ; cmi_magic_number = "Caml1999I029"
 #      ; cmo_magic_number = "Caml1999O029"
@@ -146,11 +112,3 @@ $ /usr/bin/ocamlc.opt -config > /tmp/duneb11bee.output
 #      }
 #  }
 $ (cd _build/default && .ppx/a4ea0d83c521725fd7b0167e93f2550b/ppx.exe -o blockchain.pp.ml --impl blockchain.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
-$ (cd _build/default && .ppx/a4ea0d83c521725fd7b0167e93f2550b/ppx.exe -o chain.pp.ml --impl chain.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl blockchain.pp.ml) > _build/default/.blockchain.eobjs/blockchain.pp.ml.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl chain.pp.ml) > _build/default/.blockchain.eobjs/chain.pp.ml.d
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I .blockchain.eobjs/byte -no-alias-deps -opaque -o .blockchain.eobjs/byte/dune__exe.cmo -c -impl .blockchain.eobjs/dune__exe.ml-gen)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I .blockchain.eobjs/byte -I .blockchain.eobjs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o .blockchain.eobjs/native/dune__exe.cmx -c -impl .blockchain.eobjs/dune__exe.ml-gen)
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .blockchain.eobjs/byte -I /home/onofre/.opam/default/lib/angstrom -I /home/onofre/.opam/default/lib/astring -I /home/onofre/.opam/default/lib/base64 -I /home/onofre/.opam/default/lib/bigarray-compat -I /home/onofre/.opam/default/lib/bigstringaf -I /home/onofre/.opam/default/lib/biniou -I /home/onofre/.opam/default/lib/bytes -I /home/onofre/.opam/default/lib/cmdliner -I /home/onofre/.opam/default/lib/cstruct -I /home/onofre/.opam/default/lib/easy-format -I /home/onofre/.opam/default/lib/eqaf -I /home/onofre/.opam/default/lib/eqaf/bigstring -I /home/onofre/.opam/default/lib/eqaf/cstruct -I /home/onofre/.opam/default/lib/faraday -I /home/onofre/.opam/default/lib/faraday-lwt -I /home/onofre/.opam/default/lib/faraday-lwt-unix -I /home/onofre/.opam/default/lib/fmt -I /home/onofre/.opam/default/lib/hmap -I /home/onofre/.opam/default/lib/httpaf -I /home/onofre/.opam/default/lib/httpaf-lwt-unix -I /home/onofre/.opam/default/lib/logs -I /home/onofre/.opam/default/lib/lwt -I /home/onofre/.opam/default/lib/lwt/unix -I /home/onofre/.opam/default/lib/magic-mime -I /home/onofre/.opam/default/lib/mirage-crypto -I /home/onofre/.opam/default/lib/mmap -I /home/onofre/.opam/default/lib/mtime -I /home/onofre/.opam/default/lib/mtime/os -I /home/onofre/.opam/default/lib/multipart-form-data -I /home/onofre/.opam/default/lib/ocplib-endian -I /home/onofre/.opam/default/lib/ocplib-endian/bigstring -I /home/onofre/.opam/default/lib/opium -I /home/onofre/.opam/default/lib/ppx_deriving/runtime -I /home/onofre/.opam/default/lib/ppx_deriving_yojson/runtime -I /home/onofre/.opam/default/lib/ptime -I /home/onofre/.opam/default/lib/re -I /home/onofre/.opam/default/lib/result -I /home/onofre/.opam/default/lib/rock -I /home/onofre/.opam/default/lib/seq -I /home/onofre/.opam/default/lib/sexplib0 -I /home/onofre/.opam/default/lib/sha -I /home/onofre/.opam/default/lib/stdlib-shims -I /home/onofre/.opam/default/lib/stringext -I /home/onofre/.opam/default/lib/tyxml -I /home/onofre/.opam/default/lib/tyxml/functor -I /home/onofre/.opam/default/lib/uchar -I /home/onofre/.opam/default/lib/uri -I /home/onofre/.opam/default/lib/uutf -I /home/onofre/.opam/default/lib/yojson -I /usr/lib/ocaml/threads -no-alias-deps -opaque -open Dune__exe -o .blockchain.eobjs/byte/dune__exe__Blockchain.cmo -c -impl blockchain.pp.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I .blockchain.eobjs/byte -I .blockchain.eobjs/native -I /home/onofre/.opam/default/lib/angstrom -I /home/onofre/.opam/default/lib/astring -I /home/onofre/.opam/default/lib/base64 -I /home/onofre/.opam/default/lib/bigarray-compat -I /home/onofre/.opam/default/lib/bigstringaf -I /home/onofre/.opam/default/lib/biniou -I /home/onofre/.opam/default/lib/bytes -I /home/onofre/.opam/default/lib/cmdliner -I /home/onofre/.opam/default/lib/cstruct -I /home/onofre/.opam/default/lib/easy-format -I /home/onofre/.opam/default/lib/eqaf -I /home/onofre/.opam/default/lib/eqaf/bigstring -I /home/onofre/.opam/default/lib/eqaf/cstruct -I /home/onofre/.opam/default/lib/faraday -I /home/onofre/.opam/default/lib/faraday-lwt -I /home/onofre/.opam/default/lib/faraday-lwt-unix -I /home/onofre/.opam/default/lib/fmt -I /home/onofre/.opam/default/lib/hmap -I /home/onofre/.opam/default/lib/httpaf -I /home/onofre/.opam/default/lib/httpaf-lwt-unix -I /home/onofre/.opam/default/lib/logs -I /home/onofre/.opam/default/lib/lwt -I /home/onofre/.opam/default/lib/lwt/unix -I /home/onofre/.opam/default/lib/magic-mime -I /home/onofre/.opam/default/lib/mirage-crypto -I /home/onofre/.opam/default/lib/mmap -I /home/onofre/.opam/default/lib/mtime -I /home/onofre/.opam/default/lib/mtime/os -I /home/onofre/.opam/default/lib/multipart-form-data -I /home/onofre/.opam/default/lib/ocplib-endian -I /home/onofre/.opam/default/lib/ocplib-endian/bigstring -I /home/onofre/.opam/default/lib/opium -I /home/onofre/.opam/default/lib/ppx_deriving/runtime -I /home/onofre/.opam/default/lib/ppx_deriving_yojson/runtime -I /home/onofre/.opam/default/lib/ptime -I /home/onofre/.opam/default/lib/re -I /home/onofre/.opam/default/lib/result -I /home/onofre/.opam/default/lib/rock -I /home/onofre/.opam/default/lib/seq -I /home/onofre/.opam/default/lib/sexplib0 -I /home/onofre/.opam/default/lib/sha -I /home/onofre/.opam/default/lib/stdlib-shims -I /home/onofre/.opam/default/lib/stringext -I /home/onofre/.opam/default/lib/tyxml -I /home/onofre/.opam/default/lib/tyxml/functor -I /home/onofre/.opam/default/lib/uchar -I /home/onofre/.opam/default/lib/uri -I /home/onofre/.opam/default/lib/uutf -I /home/onofre/.opam/default/lib/yojson -I /usr/lib/ocaml/threads -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o .blockchain.eobjs/native/dune__exe__Blockchain.cmx -c -impl blockchain.pp.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o blockchain.exe /home/onofre/.opam/default/lib/stdlib-shims/stdlib_shims.cmxa /home/onofre/.opam/default/lib/sha/sha.cmxa -I /home/onofre/.opam/default/lib/sha /home/onofre/.opam/default/lib/bigarray-compat/bigarray_compat.cmxa /home/onofre/.opam/default/lib/bigstringaf/bigstringaf.cmxa -I /home/onofre/.opam/default/lib/bigstringaf /home/onofre/.opam/default/lib/hmap/hmap.cmxa /home/onofre/.opam/default/lib/angstrom/angstrom.cmxa /home/onofre/.opam/default/lib/faraday/faraday.cmxa /home/onofre/.opam/default/lib/result/result.cmxa /home/onofre/.opam/default/lib/httpaf/httpaf.cmxa /home/onofre/.opam/default/lib/lwt/lwt.cmxa /home/onofre/.opam/default/lib/sexplib0/sexplib0.cmxa /home/onofre/.opam/default/lib/rock/rock.cmxa /home/onofre/.opam/default/lib/cmdliner/cmdliner.cmxa /usr/lib/ocaml/unix.cmxa -I /usr/lib/ocaml /usr/lib/ocaml/bigarray.cmxa -I /usr/lib/ocaml /home/onofre/.opam/default/lib/mmap/mmap.cmxa /home/onofre/.opam/default/lib/ocplib-endian/ocplib_endian.cmxa /home/onofre/.opam/default/lib/ocplib-endian/bigstring/ocplib_endian_bigstring.cmxa /usr/lib/ocaml/threads/threads.cmxa -I /usr/lib/ocaml /home/onofre/.opam/default/lib/lwt/unix/lwt_unix.cmxa -I /home/onofre/.opam/default/lib/lwt/unix /home/onofre/.opam/default/lib/faraday-lwt/faraday_lwt.cmxa /home/onofre/.opam/default/lib/faraday-lwt-unix/faraday_lwt_unix.cmxa /home/onofre/.opam/default/lib/httpaf-lwt-unix/httpaf_lwt_unix.cmxa /home/onofre/.opam/default/lib/logs/logs.cmxa /home/onofre/.opam/default/lib/fmt/fmt.cmxa /home/onofre/.opam/default/lib/logs/logs_fmt.cmxa /home/onofre/.opam/default/lib/mtime/mtime.cmxa /home/onofre/.opam/default/lib/mtime/os/mtime_clock.cmxa -I /home/onofre/.opam/default/lib/mtime/os /home/onofre/.opam/default/lib/ptime/ptime.cmxa /home/onofre/.opam/default/lib/easy-format/easy_format.cmxa /home/onofre/.opam/default/lib/biniou/biniou.cmxa /home/onofre/.opam/default/lib/yojson/yojson.cmxa /home/onofre/.opam/default/lib/uutf/uutf.cmxa /home/onofre/.opam/default/lib/re/re.cmxa /home/onofre/.opam/default/lib/tyxml/functor/tyxml_f.cmxa /home/onofre/.opam/default/lib/tyxml/tyxml.cmxa /home/onofre/.opam/default/lib/cstruct/cstruct.cmxa -I /home/onofre/.opam/default/lib/cstruct /home/onofre/.opam/default/lib/eqaf/eqaf.cmxa /home/onofre/.opam/default/lib/eqaf/bigstring/eqaf_bigstring.cmxa /home/onofre/.opam/default/lib/eqaf/cstruct/eqaf_cstruct.cmxa /home/onofre/.opam/default/lib/mirage-crypto/mirage_crypto.cmxa -I /home/onofre/.opam/default/lib/mirage-crypto /home/onofre/.opam/default/lib/base64/base64.cmxa /home/onofre/.opam/default/lib/astring/astring.cmxa /home/onofre/.opam/default/lib/stringext/stringext.cmxa /home/onofre/.opam/default/lib/uri/uri.cmxa /home/onofre/.opam/default/lib/magic-mime/magic_mime_library.cmxa /home/onofre/.opam/default/lib/multipart-form-data/multipart_form_data.cmxa /home/onofre/.opam/default/lib/opium/opium.cmxa /home/onofre/.opam/default/lib/ppx_deriving/runtime/ppx_deriving_runtime.cmxa /home/onofre/.opam/default/lib/ppx_deriving_yojson/runtime/ppx_deriving_yojson_runtime.cmxa .blockchain.eobjs/native/dune__exe.cmx .blockchain.eobjs/native/dune__exe__Blockchain.cmx)
