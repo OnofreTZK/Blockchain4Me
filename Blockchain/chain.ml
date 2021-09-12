@@ -1,26 +1,9 @@
+open Transaction
+open Block
+
 (* For future ->
  * Use module type to write a module interface and
  * module ModuleImpl : ModuleType to write the struct in another file *)
-
-(* Transaction type *)
-(* Serializable record *)  
-type transaction = {
-  from_ : string;
-  amount : float;
-  to_ : string;
-}[@@deriving yojson]
-
-(* Block type *)
-(* Serializable record *)
-type block = {
-  mutable block_index : int;
-  timestamp : string;
-  nonce : int;
-  transactions : transaction list;
-  prev_hash : string;
-  hash : string;
-}[@@deriving yojson]
-
 
 (* Chain type *)
 module Blockchain : sig
@@ -31,22 +14,21 @@ module Blockchain : sig
 
   val bound32int : int
 
-  val create_block : 
-    nonce:int -> transactions:transaction list -> prev_hash:string -> hash:string -> block
-  
-  val add_block : block -> t -> unit
+  val init : Block.t -> t
+ 
+  val add_block : Block.t -> t -> unit
 
-  val get_previous_block : t -> block
+  val get_previous_block : t -> Block.t
 
   val generate_target : string
 
   val hashing : string -> string -> string
 
-  val proof_of_work : block -> (int * string)
+  val proof_of_work : Block.t -> (int * string)
 
 end = struct
 
-  type t = block list
+  type t = Block.t list
 
   (* Target of zeros *)
   let target = 4
@@ -54,19 +36,16 @@ end = struct
   (* Range for random library *)
   let bound32int = 2147483647
 
-  (* Create a new block after the mining *)
-  let create_block ~nonce ~transactions ~prev_hash ~hash =
-    let timestamp = Float.to_string (Unix.time ())
-    in
-    {block_index=0; timestamp=timestamp; nonce=nonce; 
-     transactions=transactions; prev_hash=prev_hash; hash=hash}
+  (* Initialize the chain with genesis block *)
+  let init genesis = [genesis]
   
   (* Add new block to the chain *)
   let add_block block chain =
     let idx = if (List.length chain) = 0 then 0 else (List.length chain - 1)
     in
-    block.block_index <- idx;
-    block :: chain |> fun _ -> ()
+    Block.insert_index block idx
+    |> fun () -> block :: chain 
+    |> fun _ -> ()
 
   (* Returns the last block *)
   let get_previous_block chain =
@@ -89,8 +68,8 @@ end = struct
       let aux = ""
       in
       List.map 
-          (fun tx -> (tx.from_ ^ (Float.to_string tx.amount) ^ tx.to_) ^ aux) (* function *)
-          new_block.transactions (* list *)
+          (fun tx -> (Transaction.to_string tx) ^ aux) (* function *)
+          (Block.get_tx_list new_block) (* list *)
           |> fun _ -> aux (* pipe the new list and return the super string *)
     in
     let rec aux nonce =
