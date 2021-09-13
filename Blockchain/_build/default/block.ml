@@ -10,6 +10,8 @@ module Block : sig
 
   val get_tx_list : t -> Transaction.t list
 
+  val tx_to_string : Transaction.t -> string
+
 end = struct 
 
   (* Block type *)
@@ -24,18 +26,24 @@ end = struct
   }[@@deriving yojson]
 
 
+  (* Return a new block *)
   let create ~nonce ~transactions ~prev_hash ~hash =
     let timestamp = Float.to_string (Unix.time ())
     in
     {block_index=0; timestamp=timestamp; nonce=nonce; 
      transactions=transactions; prev_hash=prev_hash; hash=hash}
 
+  (* Update index with the current position in chain *)
   let insert_index block idx =
     block.block_index <- idx;
     ()
 
+  (* Return the list of transactions of a block *)
   let get_tx_list block =
     block.transactions
+
+  let tx_to_string tx = 
+    Transaction.to_string tx
 
 end
 

@@ -1,4 +1,3 @@
-open Transaction
 open Block
 
 (* For future ->
@@ -68,7 +67,7 @@ end = struct
       let aux = ""
       in
       List.map 
-          (fun tx -> (Transaction.to_string tx) ^ aux) (* function *)
+          (fun tx -> (Block.tx_to_string tx) ^ aux) (* function *)
           (Block.get_tx_list new_block) (* list *)
           |> fun _ -> aux (* pipe the new list and return the super string *)
     in
