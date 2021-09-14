@@ -10,6 +10,8 @@ module Block : sig
 
   val get_tx_list : t -> Transaction.t list
 
+  val valid_crypto : t -> t -> bool
+
   val tx_to_string : Transaction.t -> string
 
 end = struct 
@@ -41,6 +43,9 @@ end = struct
   (* Return the list of transactions of a block *)
   let get_tx_list block =
     block.transactions
+
+  let valid_crypto prev curr =
+    String.equal prev.hash curr.prev_hash
 
   let tx_to_string tx = 
     Transaction.to_string tx
