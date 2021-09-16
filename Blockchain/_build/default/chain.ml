@@ -17,6 +17,8 @@ module Blockchain : sig
   val target : int
 
   val bound32int : int
+
+  val length : t -> int
  
   val get_previous_block : t -> Block.t
 
@@ -51,6 +53,10 @@ end = struct
 
   (* Range for random library *)
   let bound32int = 2147483647
+
+  (* Chain size *)
+  let length chain =
+    List.length chain
 
   (* Returns the last block *)
   let get_previous_block chain =
