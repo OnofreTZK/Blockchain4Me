@@ -1,0 +1,18 @@
+(** @canonical Dune__exe.Block *)
+module Block = Dune__exe__Block
+
+
+(** @canonical Dune__exe.Chain *)
+module Chain = Dune__exe__Chain
+
+
+(** @canonical Dune__exe.Driver *)
+module Driver = Dune__exe__Driver
+
+
+(** @canonical Dune__exe.Storage *)
+module Storage = Dune__exe__Storage
+
+
+(** @canonical Dune__exe.Transaction *)
+module Transaction = Dune__exe__Transaction

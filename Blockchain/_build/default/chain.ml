@@ -17,8 +17,6 @@ module Blockchain : sig
   val target : int
 
   val bound32int : int
-
-  val init : Block.t -> t
  
   val get_previous_block : t -> Block.t
 
@@ -54,9 +52,6 @@ end = struct
   (* Range for random library *)
   let bound32int = 2147483647
 
-  (* Initialize the chain with genesis block *)
-  let init genesis = [genesis]
-  
   (* Returns the last block *)
   let get_previous_block chain =
     List.nth chain ((List.length chain) - 1)
@@ -82,7 +77,7 @@ end = struct
     in
     Block.update_index block idx
     |> fun () -> Block.update_hash block (hash_of_string (Block.to_string block))
-    |> fun () -> block :: chain 
+    |> fun () -> block :: chain
 
 
   (* mine function (wrong version)*)
@@ -142,8 +137,5 @@ end = struct
     let prev_hash = Block.get_hash (get_previous_block chain) (* last block hash *)
     in
     Block.create ~nonce ~transactions ~prev_hash
-    (*in
-    add_block raw_block chain |> fun _ -> Printf.printf "Tamanho da chain: %d\n%!" (List.length chain)
-    |> fun () -> get_previous_block chain*)
 
 end
