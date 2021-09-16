@@ -54,7 +54,8 @@ end = struct
 
   (* Returns the last block *)
   let get_previous_block chain =
-    List.nth chain ((List.length chain) - 1)
+    (* List is storage with the genesis block on the end *)
+    List.nth (List.rev chain) ((List.length chain) - 1)
 
   (* Generates a string with a number of zeros defined as the target *)
   let generate_target =
@@ -73,7 +74,7 @@ end = struct
   
   (* Add new block to the chain *)
   let add_block block chain =
-    let idx = if (List.length chain) = 0 then 0 else (List.length chain - 1)
+    let idx = List.length chain
     in
     Block.update_index block idx
     |> fun () -> Block.update_hash block (hash_of_string (Block.to_string block))
