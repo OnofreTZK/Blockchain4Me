@@ -19,9 +19,43 @@ contract scales_ico {
     mapping(address => uint) equity_usd;
 
     // Verify that availability to buy scales
-    modifier con_buy_scales(uint usd_invested){
+    modifier can_buy_scales(uint usd_invested){
         require ((usd_invested * usd_to_scales) + total_scales_bought <= max_scales);
         _; // <-- this is to ensure that the function only will be applied if the condition is true
     }
 
+    // Functions Implementation
+
+    // Return the value in scales
+    function equity_in_scales(address investor) external view returns(uint){
+        return equity_scales[investor];
+    }
+
+    // Return the value in dollar
+    function equity_in_usd(address investor) external view returns(uint){
+        return equity_usd[investor];
+    }
+
+    // Buy
+    function buy_scales(address investor, uint usd_invested) external
+    can_buy_scales(usd_invested) {
+        // Amount of Scales
+        uint scales_bought = usd_invested * usd_to_scales;
+        // Updating the value in scales
+        equity_scales[investor] += scales_bought;
+        // Updating the value in dollar
+        equity_usd[investor] = equity_scales[investor] / usd_to_scales;
+
+        total_scales_bought += scales_bought;
+    }
+
+    // Sell
+    function sell_scales(address investor, uint scales_sold) external {
+        // Updating the value in scales
+        equity_scales[investor] -= scales_sold;
+        // Updating the value in dollar
+        equity_usd[investor] -= scales_sold / usd_to_scales;
+
+        total_scales_bought -= scales_sold;
+    }
 }
