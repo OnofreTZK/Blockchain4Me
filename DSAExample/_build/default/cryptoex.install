@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/cryptoex/META"
+  "_build/install/default/lib/cryptoex/dune-package"
+  "_build/install/default/lib/cryptoex/opam"
+]
+bin: [
+  "_build/install/default/bin/cryptoex"
+]
