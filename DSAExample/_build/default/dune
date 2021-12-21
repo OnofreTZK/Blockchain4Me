@@ -1,4 +1,4 @@
 (executable
  (name cr)
  (public_name cryptoex)
- (libraries unix mirage-crypto-pk mirage-crypto-rng.unix cstruct))
+ (libraries unix mirage-crypto-pk mirage-crypto-rng.unix cstruct base64))
