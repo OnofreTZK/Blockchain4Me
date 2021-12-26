@@ -15,7 +15,7 @@ let encoded_priv_key = Base64.encode_string str_priv_key
 
 (*let str_private_key = Cstruct.to_string (Cstruct.create 89)*)
 
-let () = Printf.printf "Public string: %s\nPrivate String: %s\n%!" str encoded_priv_key
+let () = Printf.printf "Private String: %s\n%!" encoded_priv_key
 
 let signature = Dsa.sign ~key:private_key (Cstruct.of_string "Message to sign")
 
@@ -25,6 +25,7 @@ let encoded_signature =
   Base64.encode_string signature_str
 
 let () = Printf.printf "Signature string: %s\n%!" encoded_signature
+
 
 
 
